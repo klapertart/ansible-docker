@@ -1,0 +1,7 @@
+- name: Test ping ke host target
+  hosts: target
+  gather_facts: no
+
+  tasks:
+    - name: Ping ke target
+      ansible.builtin.ping:

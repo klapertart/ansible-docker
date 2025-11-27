@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  ansible:
+    #build: .
+    image: ansible_ansible:latest
+    container_name: ansible-controller
+    volumes:
+      - ./ansible_projects:/ansible_projects
+    working_dir: /ansible_projects
+    command: sleep infinity

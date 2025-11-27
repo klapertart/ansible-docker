@@ -1,0 +1,10 @@
+---
+- name: Restart host target
+  hosts: target
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Restart the host
+      ansible.builtin.reboot:
+        reboot_timeout: 300
