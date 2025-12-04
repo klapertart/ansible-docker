@@ -1,6 +1,6 @@
 ---
 - name: Restart host target
-  hosts: target
+  hosts: centos
   become: yes
   gather_facts: no
 

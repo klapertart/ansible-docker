@@ -1,0 +1,14 @@
+kubeconfig: "/ansible_projects/dev-cluster.yaml"
+
+app_name: nginx-demo
+namespace: cakra-exploration
+
+deployment_name: nginx-demo
+image: nginx:1.25-alpine
+
+replicas: 1
+
+container_port: 80
+service_port: 80
+service_type: ClusterIP
+

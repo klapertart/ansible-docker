@@ -1,2 +1,6 @@
-[target]
+[centos]
 192.168.56.101 ansible_user=root ansible_password=getpass ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[ubuntu]
+172.27.1.151 ansible_user=root ansible_password=getpass ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+

@@ -1,0 +1,26 @@
+- name: Deploy Nginx ke Kubernetes
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - vars/app-vars.yaml
+
+  tasks:
+    - name: Apply namespace
+      kubernetes.core.k8s:
+        state: present
+        kubeconfig: "{{ kubeconfig }}"
+        definition: "{{ lookup('template', 'manifests/namespace.yaml.j2') }}"
+
+    - name: Deploy nginx
+      kubernetes.core.k8s:
+        state: present
+        kubeconfig: "{{ kubeconfig }}"
+        definition: "{{ lookup('template', 'manifests/deployment.yaml.j2') }}"
+
+    - name: Apply Service (opsional)
+      kubernetes.core.k8s:
+        state: present
+        kubeconfig: "{{ kubeconfig }}"
+        definition: "{{ lookup('template', 'manifests/service.yaml.j2') }}"
+      ignore_errors: true  # jika belum ada, playbook tetap jalan

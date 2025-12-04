@@ -1,5 +1,5 @@
 - name: Test ping ke host target
-  hosts: target
+  hosts: ubuntu
   gather_facts: no
 
   tasks:
